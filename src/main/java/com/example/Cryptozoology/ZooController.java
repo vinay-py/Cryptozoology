@@ -1,10 +1,7 @@
 package com.example.Cryptozoology;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -20,5 +17,10 @@ public class ZooController {
     @ResponseStatus(HttpStatus.CREATED)
     public void addAnimals(@RequestBody AnimalDto animalDto){
         animals.add(animalDto);
+    }
+
+    @GetMapping("animal")
+    public ArrayList<AnimalDto> getAnimals(){
+        return this.animals;
     }
 }
